@@ -215,6 +215,7 @@ input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps)
 
 a {
     text-decoration: none;
+    color: #FFFFFF;
 }
 
 a:visited {
@@ -250,26 +251,20 @@ a:hover {
     top: calc(50% - 50px);
     padding: 5px;
     width: 100%;
-    opacity: .5;
 }
 
-/* The following declaration doesn't work. Ask Professor Bailey or Naomi whether we're required to have
-audio element be semi-transparent with fully opaque buttons like in the mock-up or if that was just
-from their browser's default styles.
-
-In addition, their audio element's controls are taller than mine are in Chrome and Firefox Developer
-Edition, so ask whether we're supposed to make the height match, too.
-
-.trending-item audio button {
-    opacity: 1;
+audio::-webkit-media-controls-enclosure {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-*/
+audio::-webkit-media-controls-mute-button, audio::-webkit-media-controls-play-button {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+}
 
 .top {
     display: flex;
     flex-direction: column;
-    flex: 0 0 200px;
 } 
 
 header {
@@ -321,6 +316,10 @@ header p {
     margin-left: 10px;
 }
 
+#trending ::-webkit-scrollbar {
+    width: 15px;
+}
+
 #trending ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 15px #590242;
 }
@@ -332,6 +331,23 @@ header p {
 
 #trending ::-webkit-scrollbar-thumb:hover {
     background: #020659;
+}
+
+#playlists ::-webkit-scrollbar, #curated-playlists ::-webkit-scrollbar {
+    width: 15px;
+}
+
+#playlists ::-webkit-scrollbar-track, #curated-playlists ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px #020659;
+}
+
+#playlists ::-webkit-scrollbar-thumb, #curated-playlists ::-webkit-scrollbar-thumb {
+    background: #020659;
+    border-radius: 5px;
+}
+
+#playlists ::-webkit-scrollbar-thumb:hover, #curated-playlists ::-webkit-scrollbar-thumb:hover {
+    background: #FFFFFF;
 }
 
 #playlists h2 {
@@ -422,6 +438,14 @@ footer p {
         font-weight: bold;
     }
 
+    nav {
+        flex: 0 0 72px;
+    }
+
+    nav ul li a {
+        height: 72px;
+    }
+
     #mobile-logo {
         display: none;
     }
@@ -450,4 +474,6 @@ footer p {
     #playlists dd {
         margin: 10px 0;
     }
+    
+
 }
