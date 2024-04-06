@@ -1,0 +1,453 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* End of CSS Reset / Provided Code Below (w/ Some Custom CSS Added)
+------------------------------------*/
+
+html {
+    background-color: #020659;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+    width: 375px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    font-size: 1.25em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+h2 {
+    color: #590242;
+    margin-left: 1.875em;
+    margin-top: 2.5em;
+}
+
+h2, h3 {
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+p, dl, dd {
+    font-size: 1em;
+}
+
+footer p {
+    font-size: .75em;
+}
+
+/*
+Menu Code for Mobile First Style (minus the bits you know how to do): 
+------------------------------------*/
+
+ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+
+/* Added everything from here */
+
+nav {
+    order: 1;
+    background-color: #030A8C;
+    text-transform: uppercase;
+}
+
+nav h2 {
+    display: none;
+}
+
+nav ul {
+    text-align: center;
+}
+
+nav ul li:first-child {
+    display: none;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+
+nav li a:hover {
+    background-color: #590242;
+}
+
+#mobile-logo {
+    text-decoration: none;
+    color: #FFFFFF;
+    display: inline-block;
+    padding: 20px;
+    margin-left: 30px;
+    font-size: 1.25em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#mobile-logo:hover {
+    background-color: #590242;
+}
+
+.bigger-letter {
+    font-size: 1.5em;
+}
+
+/* to here */
+
+
+
+label {
+    cursor: pointer;
+    /* display: inline-block; */
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+    /* Replaced display of inline-block with the following rule */
+    float: left;
+}
+
+
+label span {
+    background-color: #ffffff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-out;
+    width: 18px;
+}
+label span:before, label span:after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+label span:before {
+    top: 5px;
+}
+label span:after {
+    top: -5px;
+}
+input {
+    display: none;
+}
+input:checked ~ ul {
+    max-height: 500px;
+}
+input:checked ~ label span {
+    background: transparent;
+}
+input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+input:checked ~ label span:after {
+    transform: rotate(45deg);
+}
+input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+    top: 0;
+}
+
+/* All Custom CSS
+------------------------------------*/
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #FFFFFF;
+}
+
+a:hover {
+    color: #FFFFFF;
+}
+
+.scroll {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.scroll > div, .scroll > section {
+    position: relative;
+    margin: 10px;
+}
+
+#trending section div {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255,255,255,.75);
+    width: 100%;
+    padding: 10px;
+}
+
+#trending section audio {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 50px);
+    padding: 5px;
+    width: 100%;
+    opacity: .5;
+}
+
+/* The following declaration doesn't work. Ask Professor Bailey or Naomi whether we're required to have
+audio element be semi-transparent with fully opaque buttons like in the mock-up or if that was just
+from their browser's default styles.
+
+In addition, their audio element's controls are taller than mine are in Chrome and Firefox Developer
+Edition, so ask whether we're supposed to make the height match, too.
+
+.trending-item audio button {
+    opacity: 1;
+}
+
+*/
+
+.top {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 200px;
+} 
+
+header {
+    background: rgb(33,4,217);
+    background: linear-gradient(90deg, rgba(33,4,217,1) 0%, rgba(0,0,0,1) 100%);
+    color: #FFFFFF;
+    padding: 10px 1.875em 20px;
+    order: 2;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #590242;
+    color: #FFFFFF;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin: 10px 0 0 1.875em;
+}
+
+.button:hover {
+    background-color: #020659;
+}
+
+.scroll section div h3, .scroll section div dl  {
+    color: #590242;
+}
+
+.scroll section div h3 {
+    margin-bottom: 10px;
+}
+
+#trending h2 {
+    margin-bottom: 10px;
+}
+
+#trending dl {
+    display: flex;
+}
+
+#trending dt {
+    font-style: italic;
+}
+
+#trending dd {
+    margin-left: 10px;
+}
+
+#trending ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px #590242;
+}
+
+#trending ::-webkit-scrollbar-thumb {
+    background: #590242;
+    border-radius: 5px;
+}
+
+#trending ::-webkit-scrollbar-thumb:hover {
+    background: #020659;
+}
+
+#playlists h2 {
+    margin-bottom: .5em;
+}
+
+#playlists .scroll {
+    text-align: center;
+}
+
+#playlists .scroll div {
+    padding: 10px;
+    color: #FFFFFF;
+}
+
+#playlists .scroll div:hover {
+    background-color: #590242;
+}
+
+#playlists dt {
+    font-weight: bold;
+    margin: 5px;
+    text-transform: uppercase;
+}
+
+#playlists dd {
+    margin: 10px;
+}
+
+#your-playlists .scroll {
+    background-color: #2699FB;
+}
+
+#your-playlists .scroll div {
+    background-color: #0D8DFB;
+}
+
+#curated-playlists .scroll {
+    background-color: #030A8C;
+}
+
+#curated-playlists .scroll div {
+    background-color: #020873;
+}
+
+footer {
+    text-align: center;
+    padding-bottom: 1em;
+    margin-top: 2.5em;
+}
+
+footer p {
+    color: #590242;
+}
+
+@media screen and (min-width:834px) {
+    ul {
+        overflow: visible;
+        /* position: absolute;
+        top: 0; */
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    label span, input {
+        display: none;
+    }
+
+    body {
+        width: 834px;
+    }
+
+    .button-container {
+        text-align: right;
+    }
+
+    .button {
+        margin: 10px 10px 0 10px;
+    }
+
+    #all-your-playlists {
+    margin-right: 0;
+    }
+
+
+    #desktop-logo {
+        display: inline;
+        font-weight: bold;
+    }
+
+    #mobile-logo {
+        display: none;
+    }
+
+    #playlists {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #playlists .scroll {
+        display: grid;
+        grid-template-rows: repeat(5, 1fr);
+        height: 500px;
+        overflow-y: auto;
+    }
+
+    #playlists .scroll div a {
+        display: grid;
+        grid-template-columns: 146px auto;
+    }
+
+    #playlists dt {
+        margin: 5px;
+    }
+
+    #playlists dd {
+        margin: 10px 0;
+    }
+}
